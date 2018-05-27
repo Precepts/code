@@ -1,0 +1,36 @@
+package theSecond;
+import java.util.Scanner;						//引入Scanner类
+public class RmbAmounts {
+
+	public static void main(String[] args) {
+		Scanner input=new Scanner(System.in); 	//获取用户输入的信息
+		System.out.println("请输入人民币的数量：");//提醒用户输入信息
+		double money=input.nextDouble();
+		input.close();
+		
+		
+		int yuan=(int)money;					//处理元部分
+		int NumOfBaiYuan=yuan/100;				//百元的数量
+		int NumOfShiYuan=yuan%100/10;			//十元的数量	
+		int NumOfWuYuan=yuan%100%10/5;			//五元的数量	
+		int NumOfYiYuan=yuan%100%10%5;			//一元的数量	
+		
+		int jiao=((int)(money*10))%10;			//处理角部分
+		int NumOfWuJiao=jiao/5;						//五角的数量
+		int NumOfYiJiao=jiao%5;						//一觉的数量
+		
+		
+		System.out.println("百元的数量为："+NumOfBaiYuan);//输出信息	
+		System.out.println("十元的数量为："+NumOfShiYuan);
+		System.out.println("五元的数量为："+NumOfWuYuan);
+		System.out.println("一元的数量为："+NumOfYiYuan);
+		System.out.println("五角的数量为："+NumOfWuJiao);
+		System.out.println("一角的数量为："+NumOfYiJiao);
+		
+		
+
+		
+	//  System.out.printf("百元的数量为：%\n.1f",NumOfBaiYuan);	 此句语法不报错，但是无法执行（以后再看）；								
+	}
+
+}
