@@ -1,0 +1,36 @@
+/*2018年5月28日   星期一
+ *练习while语句
+ *
+ * */
+package theFouth;
+ 
+
+import java.util.Scanner;
+
+public class WhilePassword {
+	final static String PASSWORD="123456";				//定义常量
+	public static void main(String[] args) {
+		Scanner input=new Scanner(System.in);			//定义变量
+		
+		int i=0;										//初始化变量
+		String password=null;
+		while(i<3){
+			System.out.println("请输入密码：");
+			password=input.next();
+			if(!PASSWORD.equals(password)){
+				int times=2-i;
+				System.out.println("密码输入错误，剩余输入次数:"+times+"次\n");		//在语句末尾使用\n可以在控制台中输入密码时进行自动换行
+				
+				if(i==2){
+					System.out.println("密码输入错误已达三次!");
+				
+				}
+			}else{
+				System.out.println("密码输入正确，登陆成功");
+				System.exit(0);
+			}
+			i++;										//循环变量		
+		}
+	}
+
+}
