@@ -1,0 +1,21 @@
+package theFirst;
+
+import java.util.Scanner;
+
+public class Circle {
+
+	public static void main(String[] args) {
+		Scanner input=new Scanner(System.in);			//录入用户输入的数据
+		
+		
+		System.out.print("圆的半径为：");					//所求圆的面积的圆的半径
+		double radious=input.nextDouble();			    //定义圆的半径数据类型
+		double area=3.14*radious*radious;				//用圆的面积公式求圆的面积
+		System.out.println("圆的面积为："+area);			//输出结果
+		
+		System.out.printf("圆的面积为：%.2f\n", area); 	//另一种输出方式
+		
+		input.close();
+	}
+
+}
