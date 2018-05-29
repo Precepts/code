@@ -1,0 +1,75 @@
+/*2018年5月29日	星期二
+ * 练习while循环    (适应更长一点的代码)
+ */
+package theFirth;
+
+import java.util.Scanner;
+
+public class Fight {
+
+	public static void main(String[] args) {
+		//1.让用户输入游戏人物名称
+		Scanner input=new Scanner(System.in);
+		System.out.println("请输入第一个人物的名字:");
+		String firstName=input.next();
+		System.out.println("请输入第二个人物的名字:");
+		String secondName=input.next();
+		input.close();
+		//2.初始化人物属性
+		int hp1=100,hp2=100;
+		int attack1=0,attack2=0;
+		
+		
+		//3.设置随机数
+
+		//4.开始循环攻击
+		while(hp1>0&&hp2>0){
+			attack1=(int)((Math.random())*1000)/10%11+5;				//定义人物的攻击在5-15之间
+			attack2=(int)((Math.random())*1000)/10%11+5;
+			
+			hp2-=attack1;		
+			//第二个人物受到攻击的情况
+			if(hp2>=0){
+				System.out.println(secondName+"受到攻击，血量减少了"+attack1+"点，"+"剩余血量为:"+hp2);
+			}else{
+				System.out.println(secondName+"受到攻击，"+"剩余血量为:0");
+				System.out.println(secondName+"死亡，"+firstName+"剩余血量为:"+hp1);
+				System.out.println(firstName+"获得胜利");
+				System.exit(0);
+			}
+			try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				// TODO 自动生成的 catch 块
+				e.printStackTrace();
+			}
+			
+			hp1-=attack2;													//第一个人物受到攻击的情况
+			if(hp1>=0){
+				System.out.println(firstName+"受到攻击，血量减少了"+attack2+"点，"+"剩余血量为:"+hp1);
+			}else{
+				System.out.println(firstName+"受到攻击，"+"剩余血量为:0");				
+				System.out.println(firstName+"死亡，"+secondName+"剩余血量为:"+hp2);
+				System.out.println(secondName+"获得胜利");
+				System.exit(0);
+			}
+			try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				// TODO 自动生成的 catch 块
+				e.printStackTrace();
+			}
+//			if(hp1<=0){
+//				System.out.println(secondName+"获得胜利");
+//				System.out.println(firstName+"死亡，"+secondName+"剩余血量为:"+hp2);
+//			}else if(hp2<=0){
+//				System.out.println(firstName+"获得胜利");
+//				System.out.println(secondName+"死亡，"+firstName+"剩余血量为:"+hp1);
+//			}
+				
+		}
+		
+
+	}
+
+}
