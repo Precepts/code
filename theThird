@@ -1,0 +1,90 @@
+/*练习switch case之类的选择语句
+ * 此类虽然不报错但不能正常执行，需修改
+ *老九学堂第28课时相关内容
+ *
+ *2018年5月25日  
+ */
+package theThird;
+
+import java.util.Scanner;
+ 
+
+public class Choice {
+
+	public static void main(String[] args) {
+		Scanner input=new Scanner(System.in);			//调用Scanner方法
+		System.out.println("1.进入");                    //提示用户输入信息
+		System.out.println("2.退出");
+
+		
+		
+		int choice=input.nextInt();						//用来储存用户输入的数据
+		
+		switch(choice){
+		case 1:											//用户选择进入
+			System.out.println("1.观察环境");
+			System.out.println("2.搜集食物");
+			System.out.println("3.制作工具");
+			System.out.println("4.寻找生物");
+			System.out.println("5.了解自身");
+			Scanner input1=new Scanner(System.in);		//获取用户输入的信息
+			int choice1=input.nextInt();
+			input1.close();								//关闭sacnner方法
+			switch(choice1){							//用户再次进行选择
+			case 1:										
+				System.out.println("现在正位于平原地形");
+				break;
+			case 2:
+				System.out.println("1.植物");
+				System.out.println("2.动物");
+				Scanner input2=new Scanner(System.in);
+				int choice2=input.nextInt();
+				input2.close();
+				switch(choice2){
+				case 1:
+					System.out.println("无法确定哪些植物可食用");
+					break;
+				case 2:
+					System.out.println("无法确定哪些动物可食用");
+					break;
+				default:
+					break;
+				}
+				break;
+			case 3:
+				System.out.println("1.打磨木制工具");
+				System.out.println("2.打磨石制工具");
+				Scanner input3=new Scanner(System.in);
+				int choice3=input.nextInt();
+				input3.close();
+				switch(choice3){
+				case 1:
+					System.out.println("打磨木制工具需用时10分钟");
+					break;
+				case 2:
+					System.out.println("打磨石制工具需用时60分钟");
+					break;
+				default:
+					break;
+				}
+				break;
+			case 4:
+				System.out.println("附近无灵长类生物");
+				break;
+			case 5:
+				System.out.println("你只能确定自己四肢健全，无法更具体的了解身体状况");
+				break;
+			default:
+				break;				
+			}
+			break;
+		case 2:
+			System.out.println("成功退出!");
+			break;
+		default:
+			break;
+		}
+		input.close();	
+	}
+
+}
